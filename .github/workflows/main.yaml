@@ -17,9 +17,9 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t kajalbagal053/todo-app:latest .
+          docker build -t kajalbagal053/todo-app:latest -f devops_todo1/.github/workflows/Dockerfile.yaml devops_todo1/.github/workflows/
           docker push kajalbagal053/todo-app:latest
 
       - name: Deploy with Docker Compose
         run: |
-          ssh ubuntu@23.20.201.197 "docker-compose -f ~/devops_todo/docker-compose.yml pull && docker-compose -f ~/devops_todo/docker-compose.yml up -d"
+          ssh ubuntu@23.20.201.197 "docker-compose -f ~/devops_todo1/.github/workflows/docker-compose.yml pull && docker-compose -f ~/devops_todo1/.github/workflows/docker-compose.yml up -d"
