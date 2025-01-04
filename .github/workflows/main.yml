@@ -22,14 +22,13 @@ jobs:
       # Step 3: Build and push the Docker image
       - name: Build and push Docker image
         run: |
-          docker build -t Bagal-kajal/devops_todo1 .
-          docker push Bagal-kajal/devops_todo1
-
+          docker build -t kajalbagal053/todo-app .
+          docker push kajalbagal053/todo-app
       # Step 4: Deploy the app on the EC2 instance
       - name: Deploy on EC2
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP }} "
-          docker pull Bagal-kajal/devops_todo1 &&
+          docker pull kajalbagal053/todo-app &&
           docker-compose down &&
           docker-compose up -d
           "
