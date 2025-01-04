@@ -17,7 +17,7 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t kajalbagal053/todo-app:latest -f devops_todo1/.github/workflows/Dockerfile devops_todo1/.github/workflows/
+          docker build -t kajalbagal053/todo-app:latest -f devops_todo1/.github/workflows/Dockerfile 
           docker push kajalbagal053/todo-app:latest
 
       - name: Deploy with Docker Compose
